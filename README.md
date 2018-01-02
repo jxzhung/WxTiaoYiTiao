@@ -3,7 +3,10 @@
 手机端微信跳一跳辅助，单个APK，无需电脑，过微信刷分检测。
 
 ## 预览
-![image](https://github.com/jxzhung/WxTiaoYiTiao/raw/master/images/preview.png){:width="500px"}
+<img src="https://github.com/jxzhung/WxTiaoYiTiao/raw/master/images/preview.png" width=500 />
+<img src="https://github.com/jxzhung/WxTiaoYiTiao/raw/master/images/score.png" width=500 />
+
+
 
 ## 注意
 
