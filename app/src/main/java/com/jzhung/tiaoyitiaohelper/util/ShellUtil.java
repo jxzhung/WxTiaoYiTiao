@@ -36,24 +36,4 @@ public class ShellUtil {
             t.printStackTrace();
         }
     }
-
-    public static void execShellCmd(List<String> cmdList){
-        try {
-            // 申请获取root权限，这一步很重要，不然会没有作用
-            Process process = Runtime.getRuntime().exec("su");
-            // 获取输出流
-            OutputStream out = process.getOutputStream();
-            DataOutputStream dos = new DataOutputStream(
-                    out);
-            for (String cmd : cmdList) {
-                dos.writeBytes(cmd);
-                dos.writeBytes("\n");
-            }
-            dos.flush();
-            dos.close();
-            out.close();
-        } catch (Throwable t) {
-            t.printStackTrace();
-        }
-    }
 }
