@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TiaoYiTiaoHelper</string>
+    <string name="clear">清除</string>
+    <string name="confirm">确认</string>
+    <string name="startService">启动服务</string>
+    <string name="exit">退出</string>
+</resources>
