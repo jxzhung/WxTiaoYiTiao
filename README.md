@@ -3,11 +3,11 @@
 手机端微信跳一跳辅助，单个APK，无需电脑，过微信刷分检测。
 
 ## 预览
-![image](https://github.com/jxzhung/WxTiaoYiTiao/raw/master/images/preview.png)
+![image](https://github.com/jxzhung/WxTiaoYiTiao/raw/master/images/preview.png =500)
 
 ## 注意
 
-1 手机需要ROOT，并给予授权  
+1 手机需要ROOT，并给予授权
 2 给本应用开启悬浮窗口权限
 
 ## 使用方法
