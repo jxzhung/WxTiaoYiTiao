@@ -1,7 +1,12 @@
 <resources>
-    <string name="app_name">TiaoYiTiaoHelper</string>
+    <string name="app_name">跳一跳助手</string>
     <string name="clear">清除</string>
     <string name="confirm">确认</string>
     <string name="startService">启动服务</string>
     <string name="exit">退出</string>
+    <string name="info">微信跳一跳助手\n
+        运行条件：\n
+        1. 手机已root且给予本程序su权限 \n
+        2. 带权限管理的手机给予本程序显示悬浮窗权限。\n
+    </string>
 </resources>

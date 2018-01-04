@@ -34,7 +34,8 @@ public class FloatViewService extends Service {
     private int mGameLayoutMargin;
     private int mTouchPointLeftMargin;
 
-    private Point mTouchPoint;
+    private Point mTouchStartPoint;
+    private Point mTouchEndPoint;
     private TextView mInfoTv;
 
     public FloatViewService() {
@@ -50,19 +51,19 @@ public class FloatViewService extends Service {
         super.onCreate();
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         initViews();
-        // TODO: 2018/1/1 速度调整
         mMoveSpeed = (int) SPUtil.get(getApplicationContext(), SP_MOVE_SPEED, 70);
         updateSpeedText();
 
         // 触摸点
         int margin = DensityUtil.dip2px(getApplicationContext(), 50);
-        int touchX = mScreenWidth - margin;
-        int touchY = mScreenHeight - margin;
-        mTouchPoint = new Point(touchX, touchY);
+//        int touchX = mScreenWidth - margin;
+//        int touchY = margin;
         mTouchPointLeftMargin = DensityUtil.dip2px(getApplicationContext(), 50);
+        mTouchStartPoint = new Point(mTouchPointLeftMargin, margin);
+        mTouchEndPoint = new Point(mTouchPointLeftMargin + 100, margin);
     }
 
-    private void updateSpeedText(){
+    private void updateSpeedText() {
         mInfoTv.setText("" + mMoveSpeed);
     }
 
@@ -94,13 +95,13 @@ public class FloatViewService extends Service {
             public void onClick(View v) {
                 mMoveLength = mGameTouchView.getLength();
                 long time = (long) (mMoveLength * 100 / mMoveSpeed);
-                Log.i(TAG, "执行触摸 " + mTouchPoint + " 时长：" + time + " 移动距离：" + mMoveLength);
+                Log.i(TAG, "执行触摸 时长：" + time + " 移动距离：" + mMoveLength);
 
                 mGameTouchView.clear();
 
                 //adb input touchscreen swipe x1 y1 x2 y2 100
 
-                String cmd = String.format(shellTmp, mTouchPointLeftMargin, mTouchPoint.y, mTouchPoint.x, mTouchPoint.y, time);
+                String cmd = String.format(shellTmp, mTouchStartPoint.x, mTouchStartPoint.y, mTouchEndPoint.x, mTouchEndPoint.y, time);
                 //String cmd = "input touchscreen swipe 200 1700 800 1700 " + time;
                 Log.i(TAG, "cmd: " + cmd);
                 ShellUtil.execShellCmd(cmd);
@@ -118,9 +119,9 @@ public class FloatViewService extends Service {
         mGameLayout.findViewById(R.id.powerPlusBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mMoveSpeed <= 1){
+                if (mMoveSpeed <= 1) {
 
-                }else {
+                } else {
                     mMoveSpeed -= 1;
                     updateSpeedText();
                 }

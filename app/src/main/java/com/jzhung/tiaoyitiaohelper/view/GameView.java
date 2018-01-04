@@ -36,7 +36,7 @@ public class GameView extends View {
         mPaint = new Paint();
         mPaint.setColor(Color.RED);
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        mPaint.setStrokeWidth(DensityUtil.dip2px(getContext(), 20));
+        mPaint.setStrokeWidth(DensityUtil.dip2px(getContext(), 10));
         mPaint.setStrokeCap(Paint.Cap.ROUND);
     }
 

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.jzhung.tiaoyitiaohelper.service.FloatViewService;
+import com.jzhung.tiaoyitiaohelper.util.ShellUtil;
 
 public class MainActivity extends AppCompatActivity {
     private Button startBtn;
@@ -23,5 +24,7 @@ public class MainActivity extends AppCompatActivity {
                 startService(intent);
             }
         });
+
+        ShellUtil.execShellCmd("echo 1");
     }
 }
