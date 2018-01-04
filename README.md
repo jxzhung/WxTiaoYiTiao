@@ -7,7 +7,6 @@
 <img src="https://github.com/jxzhung/WxTiaoYiTiao/raw/master/images/score.png" width=500 />
 
 
-
 ## 注意
 
 1 手机需要ROOT，并给予授权 <br />
@@ -22,13 +21,20 @@ apk文件在/apk/文件夹下，下载最新版本 <br />
 5 通过力量两个按钮调整跳的远近，找到一个合适的值。 <br />
 目前小米6已测试完毕，其他机型适当修改即可。 <br />
 
-## 更新
-2018.01.04 v1.1
-1 新增启动应用时申请su权限
-2 优化说明文字
-3 优化模拟触摸位置改为顶部
+## 问题和解决方法
+1 点击确定后跳转到分享界面 <br />
+可以开启开发者选项里面的显示“指针位置”查看模拟触摸的位置。 <br />
+在com/jzhung/tiaoyitiaohelper/service/FloatViewService.java的onCreate中有一行mTouchPointLeftMargin = DensityUtil.dip2px(getApplicationContext(), 50);  <br />
+可以把后面的50改大成合适的位置就行了。
 
-2018.01.03 v1.0
-1 初版发布
+## 更新
+2018.01.04 v1.1<br />
+1 新增启动应用时申请su权限<br />
+2 优化说明文字<br />
+3 优化模拟触摸位置改为顶部<br />
+
+2018.01.03 v1.0<br />
+1 初版发布<br />
 
 ## 建议大家以技术研究的目的运行本程序，毕竟，游戏的快乐无价！
+
