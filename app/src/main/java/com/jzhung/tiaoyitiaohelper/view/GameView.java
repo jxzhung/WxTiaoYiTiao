@@ -36,7 +36,7 @@ public class GameView extends View {
         mPaint = new Paint();
         mPaint.setColor(Color.RED);
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        mPaint.setStrokeWidth(DensityUtil.dip2px(getContext(), 10));
+        mPaint.setStrokeWidth(DensityUtil.dip2px(getContext(), 8));
         mPaint.setStrokeCap(Paint.Cap.ROUND);
     }
 
@@ -74,5 +74,12 @@ public class GameView extends View {
         float y2 = Math.abs(mBeginPoint.y - mEndPoint.y);
         float length = (float) Math.sqrt(x2 * x2 + y2 * y2);
         return length;
+    }
+
+    public boolean ready(){
+        if(mBeginPoint != null && mEndPoint != null){
+            return true;
+        }
+        return false;
     }
 }

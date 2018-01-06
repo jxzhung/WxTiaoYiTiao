@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jzhung.tiaoyitiaohelper.R;
 import com.jzhung.tiaoyitiaohelper.util.DensityUtil;
@@ -93,6 +94,12 @@ public class FloatViewService extends Service {
         mGameLayout.findViewById(R.id.confirmBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(!mGameTouchView.ready()){
+                    Toast.makeText(FloatViewService.this, "需要点击小人底部和下一个物体中间两个点", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 mMoveLength = mGameTouchView.getLength();
                 long time = (long) (mMoveLength * 100 / mMoveSpeed);
                 Log.i(TAG, "执行触摸 时长：" + time + " 移动距离：" + mMoveLength);
@@ -151,5 +158,13 @@ public class FloatViewService extends Service {
         params.height = mScreenHeight - (mGameLayoutMargin * 2);
         params.gravity = Gravity.CENTER;
         return params;
+    }
+
+    @Override
+    public void onDestroy() {
+        if(mWindowManager != null){
+            mWindowManager.removeView(mGameLayout);
+        }
+        super.onDestroy();
     }
 }
